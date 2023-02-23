@@ -49,10 +49,20 @@ const drawDescription = (
   uploaded: boolean,
   typeError: boolean,
   disabled: boolean | undefined,
-  label: string | undefined
+  label: string | undefined,
+  successLabel: string | undefined,
+  errorLabel: string | undefined
 ) => {
-  return typeError ? (
-    <span>File type/size error, Hovered on types!</span>
+  return typeError ? ({errorLabel ? (
+            <>
+                         <span>{errorLabel}</span>
+            </>
+          ) : (
+            <>
+             <span>File type/size error, Hovered on types!</span>
+            </>
+          )}
+    
   ) : (
     <Description>
       {disabled ? (
@@ -72,6 +82,15 @@ const drawDescription = (
         </>
       ) : (
         <>
+           {successlabel ? (
+            <>
+              <span>{successLabel}
+            </>
+          ) : (
+            <>
+              <span>Uploaded Successfully!</span> Upload another?
+            </>
+          )}
           <span>Uploaded Successfully!</span> Upload another?
         </>
       )}
