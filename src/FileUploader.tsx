@@ -229,7 +229,7 @@ const FileUploader: React.FC<Props> = (props: Props): JSX.Element => {
       setUploaded(false);
       setFile(null);
     }
-  }, [fileOrFiles]);
+  }, [fileOrFiles, inputRef]);
 
   return (
     <UploaderWrapper
